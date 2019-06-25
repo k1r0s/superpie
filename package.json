@@ -1,0 +1,22 @@
+{
+  "name": "superpie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/superpie.umd.js",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "prepublish": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "scope-css": "^1.2.1",
+    "superfine": "^6.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "rollup": "^1.16.2",
+    "rollup-plugin-babel": "^4.3.3"
+  }
+}
