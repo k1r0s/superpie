@@ -1,23 +1,23 @@
-### SUPERPIE
+### SUPERPIE for superfine v6
 
 > this readme is not completed yet
 
 Lightweight library based on [superfine](https://github.com/jorgebucaran/superfine).
 
-```jsx
-import { h } from "superfine";
-import { render } from "superpie";
+##### Why?
 
-const Main = () => (
-  <h2>Superfine on steroids</h2>
-)
+Superfine is tiny vdom library used to build web interfaces. It comes with the minimum features to provide flexibility and simplicity. But when facing any serious development you need at least to add several features such as state management and styling.
 
-render(Main, document.getElementById("app"));
-```
+This library size is only 717 Bytes and is the perfect complement to superfine if you want to quickly develop simple and blazing fast web apps.
 
-What does it include?
+##### Samples
 
-- self state management
+- [Form](/demo/form)
+- [Router](/demo/router)
+
+##### What does it include?
+
+- scoped state
 
 ```jsx
 import { h } from 'superfine';

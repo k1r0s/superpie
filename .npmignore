@@ -1,3 +1,4 @@
 src/
+demo/
 package-lock.json
 rollup.config.js

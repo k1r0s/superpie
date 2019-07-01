@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    ["@babel/plugin-transform-react-jsx", {
+      "pragma": "h",
+      "pragmaFrag": "h"
+    }],
+    ["babel-plugin-jsx-pragmatic", {
+      "module": "superfine",
+      "import": "h",
+      "export": "h"
+    }]
+  ]
+}

@@ -1,2 +1,4 @@
 node_modules/
 dist/
+demo/router/.cache
+demo/form/.cache

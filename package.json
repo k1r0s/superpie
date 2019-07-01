@@ -2,9 +2,11 @@
   "name": "superpie",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/superpie.umd.js",
+  "main": "dist/superpie.js.gz",
+  "module": "dist/superpie.mjs.gz",
+  "browser": "dist/superpie.umd.gz",
   "scripts": {
-    "build": "rollup -c rollup.config.js",
+    "build": "microbundle build --globals scope-css=scopeCss,superfine=superfine",
     "prepublish": "npm run build"
   },
   "keywords": [],
@@ -15,8 +17,6 @@
     "superfine": "^6.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "rollup": "^1.16.2",
-    "rollup-plugin-babel": "^4.3.3"
+    "microbundle": "^0.11.0"
   }
 }
