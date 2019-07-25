@@ -1,7 +1,7 @@
 import { render, statefine } from "superpie";
 import { Form, FormField } from "./form";
 
-const Main = statefine(({ state, setState }) => (
+const Main = statefine({ name: "", surname: "" }, ({ state, setState }) => (
   <Form from={state} oninput={setState}>
     <FormField label="Name" name="name"/>
     <FormField label="Surname" name="surname"/>

@@ -12,7 +12,7 @@ const Link = stylefine(
   <a onclick={() => r.route(to)}>{children}</a>
 ))
 
-const Router = statefine(({ state, setState, props }) => (
+const Router = statefine(({ state = {}, setState, props }) => (
   <rou oncreate={() => {
     props.children.forEach(child => r.on(child.props.route, params => setState({ params, current: child.props.render })))
     r.route(location.pathname);
