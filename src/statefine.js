@@ -20,14 +20,15 @@ const bindSetState = statefine => ss => {
     setTimeout(() => statefine.selfRender(statefine.ctx));
 };
 
-export default (comp) => (props) => {
+export default (...args) => (props) => {
+    const comp = [...args].pop();
     const tag = comp.__eltag ? comp.__eltag: comp.__eltag = getRandomTag();
     return h(tag, {
         oncreate: (element) => {
             const statefine = element.$$statefine = {};
             const setState = bindSetState(statefine);
-            const state = {};
-            statefine.ctx = { props, state, setState };
+            const state = args.length === 2 ? [...args].shift(): undefined;
+            statefine.ctx = { state, props, setState };
             statefine.selfRender = app(comp, element);
             statefine.selfRender(statefine.ctx);
         },
