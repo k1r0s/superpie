@@ -12,8 +12,9 @@ This library size is only 717 Bytes and is the perfect complement to superfine i
 
 ##### Samples
 
-- [Form](/demo/form)
-- [Router](/demo/router)
+- [Form](/demo/form) - Form management and state binding as a component.
+- [Router](/demo/router) - HTML5 history API management as a component.
+- [Select](/demo/select) - Native `<select/>` tag with filter and scoped styles.
 
 ##### What does it include?
 
