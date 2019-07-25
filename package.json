@@ -1,6 +1,6 @@
 {
   "name": "superpie",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "dist/superpie.js.gz",
   "module": "dist/superpie.mjs.gz",
