@@ -1,5 +1,7 @@
 ### SUPERPIE for superfine v6
 
+[As superfine updates to v7 several unreconcilable changes push superpie to 6.*](https://github.com/jorgebucaran/superfine/issues/167)
+
 > this readme is not completed yet
 
 Lightweight library based on [superfine](https://github.com/jorgebucaran/superfine).
