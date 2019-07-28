@@ -2,6 +2,8 @@ import { cyclefine, stylefine } from "superpie";
 
 export { Select }
 
+const ISTATE = { tooltip: false, typing: false, value: "" };
+
 const Select = stylefine(
   `
     [dselector-root] {
@@ -30,7 +32,7 @@ const Select = stylefine(
       background-color: grey;
     }
   `,
-  cyclefine({ tooltip: false, typing: false, value: "" }, {
+  cyclefine(ISTATE, {
 
     oncreate(ref) {
       this.ref = ref;
@@ -39,7 +41,7 @@ const Select = stylefine(
 
     closeTooltip () {
       window.removeEventListener("click", this.onWindowClick);
-      this.setState({ tooltip: false });
+      this.setState(ISTATE);
     },
 
     onWindowClick(evt) {
@@ -47,14 +49,10 @@ const Select = stylefine(
         this.closeTooltip();
     },
 
-    handleBlur() {
-      this.setState({ typing: false, value: "" });
-    },
-
     handleFocus(evt) {
       evt.target.select();
       if(this.state.tooltip) return;
-      setTimeout(() => window.addEventListener("click", this.onWindowClick), 100);
+      window.addEventListener("click", this.onWindowClick);
       this.setState({ tooltip: true, typing: true });
     },
 
@@ -75,11 +73,10 @@ const Select = stylefine(
       fakeEvt.target = {}
       fakeEvt.target.value = opt;
       this.props.onchange(fakeEvt);
-      this.setState({ value: "" });
+      this.closeTooltip();
     },
 
     onrender() {
-      const { options } = this.props;
       const { value, typing, tooltip } = this.state;
 
       return (
@@ -87,16 +84,12 @@ const Select = stylefine(
           <div dselector-display>
             <input
               onfocus={evt => this.handleFocus(evt)}
-              onblur={evt => this.handleBlur(evt)}
               oninput={evt => this.handleInput(evt)}
-              value={typing ? value: this.props.value}/>
+              value={typing ? value: this.props.value} />
           </div>
           <div dselector-tooltip hidden={!tooltip}>
-            {options.filter(this.getFilter(value)).map(opt => (
-              <div dselector-option onclick={() => {
-                this.selectValue(opt);
-                this.closeTooltip();
-              }}>
+            {this.props.options.filter(this.getFilter(value)).map(opt => (
+              <div dselector-option onclick={() => this.selectValue(opt)}>
                 {opt}
               </div>
             ))}
