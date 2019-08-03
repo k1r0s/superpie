@@ -14,6 +14,9 @@ const Main = () => (
     </div>
     <hr />
     <Router>
+      <page render={() => (
+        <p>not found :(</p>
+      )} />
       <page route="/" render={() => (
         <p>home</p>
       )} />
