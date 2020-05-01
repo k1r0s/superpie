@@ -1,9 +1,9 @@
 import { stylefine } from "superpie";
 
-const FORM_BIND_PROP = "name";
+const FORM_BIND_PROP = "data-field";
 const FORM_OBJ_PROP = "from";
 
-export { Form, FormField }
+export { Form }
 
 const Form = props => {
     const form = props[FORM_OBJ_PROP] || {};
@@ -11,7 +11,7 @@ const Form = props => {
         if(!child) return null;
         if(FORM_BIND_PROP in child.props) {
             Object.assign(child.props, {
-                oninput: evt => props.oninput({ [child.props[FORM_BIND_PROP]]: evt.target.value }),
+                onchange: evt => props.onchange({ [child.props[FORM_BIND_PROP]]: evt.target.value }),
                 value: form[child.props[FORM_BIND_PROP]]
             })
         }
@@ -25,20 +25,3 @@ const Form = props => {
         <form>{mapChilren(props.children)}</form>
     );
 }
-
-const FormField = stylefine(
-  `
-    div {
-      width: 20rem;
-      display: flex;
-      justify-content: space-between;
-      padding: .4rem;
-    }
-  `,
-  ({ label, ...attrs }) => (
-    <div>
-      <label>{label}: </label>
-      <input { ...attrs }/>
-    </div>
-  )
-)

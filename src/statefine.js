@@ -23,7 +23,7 @@ const bindSetState = statefine => ss => {
 export default (...args) => (props) => {
     const comp = [...args].pop();
     const tag = comp.__eltag ? comp.__eltag: comp.__eltag = getRandomTag();
-    return h(tag, {
+    return h(tag, Object.assign(props, {
         oncreate: (element) => {
             const statefine = element.$$statefine = {};
             const setState = bindSetState(statefine);
@@ -42,5 +42,5 @@ export default (...args) => (props) => {
             const statefine = element.$$statefine;
             statefine.selfRender(null, EMPTY_TAG);
         }
-    });
+    }));
 };
