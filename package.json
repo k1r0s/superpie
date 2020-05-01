@@ -6,7 +6,8 @@
   "module": "dist/superpie.mjs.gz",
   "browser": "dist/superpie.umd.gz",
   "scripts": {
-    "build": "microbundle build --globals scope-css=scopeCss,superfine=superfine",
+    "build": "microbundle build",
+    "dev": "microbundle watch",
     "prepublish": "npm run build"
   },
   "keywords": [],

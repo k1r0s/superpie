@@ -23,19 +23,24 @@ const bindSetState = statefine => ss => {
 export default (...args) => (props) => {
     const comp = [...args].pop();
     const tag = comp.__eltag ? comp.__eltag: comp.__eltag = getRandomTag();
+    const { children, ...rest } = props;
+
     return h(tag, {
+        ...rest,
         oncreate: (element) => {
             const statefine = element.$$statefine = {};
             const setState = bindSetState(statefine);
             const state = args.length === 2 ? [...args].shift(): undefined;
-            statefine.ctx = { state, props, setState };
+            statefine.ctx = { state, props: rest, setState };
+            statefine.ctx.props.children = children;
             statefine.selfRender = app(comp, element);
             statefine.selfRender(statefine.ctx);
         },
         onupdate: (element) => {
             const statefine = element.$$statefine;
             statefine.ctx.oprops = statefine.ctx.props;
-            statefine.ctx.props = props;
+            statefine.ctx.props = rest;
+            statefine.ctx.props.children = children;
             statefine.selfRender(statefine.ctx);
         },
         ondestroy: (element) => {

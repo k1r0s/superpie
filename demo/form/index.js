@@ -1,10 +1,38 @@
 import { render, statefine } from "superpie";
-import { Form, FormField } from "./form";
+import { Form } from "./form";
+
+const TestState = statefine((ctx) => {
+  console.log("stateful", ctx.props);
+  const { children, ...rest } = ctx.props;
+  return (
+    <div>
+      {children}
+      <input { ...rest }/>
+    </div>
+  )
+})
+
+const TestOrdinary = (props) => {
+  console.log("stateless", props);
+  const { children, ...rest } = props;
+  return (
+    <div>
+      {children}
+      <input { ...rest }/>
+    </div>
+  )
+}
 
 const Main = statefine({ name: "", surname: "" }, ({ state, setState }) => (
   <Form from={state} oninput={setState}>
-    <FormField label="Name" name="name"/>
-    <FormField label="Surname" name="surname"/>
+    <TestState data-field="name">
+      <label>Name</label>
+      <label>value: {state.name}</label>
+    </TestState>
+    <TestOrdinary data-field="surname">
+      <label>Surname</label>
+      <label>value: {state.surname}</label>
+    </TestOrdinary>
     <pre>{JSON.stringify(state, null, 2)}</pre>
   </Form>
 ))
