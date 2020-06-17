@@ -1,4 +1,4 @@
-import { h } from "superfine";
+import { h } from "../custom-superfine";
 
 import statefine from "./statefine";
 

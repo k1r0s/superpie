@@ -2,9 +2,7 @@
   "name": "superpie",
   "version": "2.0.0",
   "description": "",
-  "main": "dist/superpie.js.gz",
-  "module": "dist/superpie.mjs.gz",
-  "browser": "dist/superpie.umd.gz",
+  "main": "dist/superpie.js",
   "scripts": {
     "build": "microbundle build",
     "dev": "microbundle watch",
@@ -13,13 +11,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "alias": {
-    "superfine": "./custom-superfine"
-  },
   "dependencies": {
     "scope-css": "^1.2.1"
   },
   "devDependencies": {
-    "microbundle": "^0.11.0"
+    "microbundle": "^0.12.1"
   }
 }

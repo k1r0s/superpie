@@ -1,4 +1,4 @@
-import { h } from "superfine";
+import { h } from "../custom-superfine";
 import scope from "scope-css";
 
 const getRandomTag = () => "element-" + Math.random().toString(32).split(".").pop();

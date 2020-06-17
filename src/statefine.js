@@ -1,4 +1,4 @@
-import { h, patch } from "superfine";
+import { h, patch } from "../custom-superfine";
 
 const EMPTY_TAG = {
     children: [],
