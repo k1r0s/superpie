@@ -5,7 +5,7 @@
       "pragmaFrag": "h"
     }],
     ["babel-plugin-jsx-pragmatic", {
-      "module": "superfine",
+      "module": "superpie",
       "import": "h",
       "export": "h"
     }]

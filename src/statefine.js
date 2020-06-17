@@ -34,6 +34,7 @@ export default (...args) => (props) => {
             statefine.ctx = {};
             statefine.ctx.state = state;
             statefine.ctx.props = cprops;
+            statefine.ctx.props.children = children;
             statefine.ctx.setState = setState;
             statefine.selfRender = app(comp, element);
             statefine.selfRender(statefine.ctx);
@@ -42,6 +43,7 @@ export default (...args) => (props) => {
             const statefine = element.$$statefine;
             statefine.ctx.oprops = oprops;
             statefine.ctx.props = nprops;
+            statefine.ctx.props.children = children;
             statefine.selfRender(statefine.ctx);
         },
         ondestroy: (element) => {
