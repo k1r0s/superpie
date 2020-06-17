@@ -81,6 +81,16 @@ var updateProperty = function(element, name, lastValue, nextValue, isSvg) {
   }
 }
 
+var copyWithoutLifecycles = function(props) {
+  var result = {}
+  for (var n in props) {
+    if (["oncreate", "onupdate", "ondestroy"].indexOf(n) === -1) {
+      result[n] = props[n]
+    }
+  }
+  return result
+}
+
 var createElement = function(node, lifecycle, isSvg) {
   var element =
     node.type === TEXT_NODE
@@ -92,7 +102,7 @@ var createElement = function(node, lifecycle, isSvg) {
   var props = node.props
   if (props.oncreate) {
     lifecycle.push(function() {
-      props.oncreate(element, props)
+      props.oncreate(element, copyWithoutLifecycles(props))
     })
   }
 
@@ -128,7 +138,7 @@ var updateElement = function(
   var cb = isRecycled ? nextProps.oncreate : nextProps.onupdate
   if (cb != null) {
     lifecycle.push(function() {
-      cb(element, lastProps, nextProps)
+      cb(element, lastProps, copyWithoutLifecycles(nextProps))
     })
   }
 }

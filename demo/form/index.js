@@ -2,7 +2,6 @@ import { render, statefine } from "superpie";
 import { Form } from "./form";
 
 const TestState = statefine((ctx) => {
-  console.log("stateful", ctx.props);
   const { children, ...rest } = ctx.props;
   return (
     <div>
@@ -13,7 +12,6 @@ const TestState = statefine((ctx) => {
 })
 
 const TestOrdinary = (props) => {
-  console.log("stateless", props);
   const { children, ...rest } = props;
   return (
     <div>

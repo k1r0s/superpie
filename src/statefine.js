@@ -23,7 +23,7 @@ const bindSetState = statefine => ss => {
 export default (...args) => (props) => {
     const comp = [...args].pop();
     const tag = comp.__eltag ? comp.__eltag: comp.__eltag = getRandomTag();
-    let { children, ...rest } = props;
+    const { children, ...rest } = props;
 
     return h(tag, {
         ...rest,
