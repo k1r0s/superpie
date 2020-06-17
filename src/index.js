@@ -1,4 +1,4 @@
-import { patch } from "../custom-superfine";
+import { patch, h } from "../custom-superfine";
 import statefine from "./statefine";
 import stylefine from "./stylefine";
 import cyclefine from "./cyclefine";
@@ -11,4 +11,4 @@ const render = (view, root) => {
   app(view, root)(0);
 }
 
-export { render, statefine, stylefine, cyclefine };
+export { render, statefine, stylefine, cyclefine, h };
