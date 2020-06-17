@@ -13,9 +13,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "alias": {
+    "superfine": "./custom-superfine"
+  },
   "dependencies": {
-    "scope-css": "^1.2.1",
-    "superfine": "^6.0.1"
+    "scope-css": "^1.2.1"
   },
   "devDependencies": {
     "microbundle": "^0.11.0"
